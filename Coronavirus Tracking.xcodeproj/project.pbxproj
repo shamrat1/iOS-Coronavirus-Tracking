@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		216C3AC2246C47A7006BC014 /* LiveReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216C3AC1246C47A7006BC014 /* LiveReportsViewController.swift */; };
 		21FEA9A7246C31D800FA2BB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FEA9A6246C31D800FA2BB5 /* AppDelegate.swift */; };
 		21FEA9A9246C31D800FA2BB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FEA9A8246C31D800FA2BB5 /* ViewController.swift */; };
 		21FEA9AC246C31D800FA2BB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21FEA9AA246C31D800FA2BB5 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		216C3AC1246C47A7006BC014 /* LiveReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveReportsViewController.swift; sourceTree = "<group>"; };
 		21FEA9A3246C31D800FA2BB5 /* Coronavirus Tracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coronavirus Tracking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21FEA9A6246C31D800FA2BB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21FEA9A8246C31D800FA2BB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				21FEA9AD246C31DA00FA2BB5 /* Assets.xcassets */,
 				21FEA9AF246C31DA00FA2BB5 /* LaunchScreen.storyboard */,
 				21FEA9B2246C31DA00FA2BB5 /* Info.plist */,
+				216C3AC1246C47A7006BC014 /* LiveReportsViewController.swift */,
 			);
 			path = "Coronavirus Tracking";
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				216C3AC2246C47A7006BC014 /* LiveReportsViewController.swift in Sources */,
 				21FEA9A9246C31D800FA2BB5 /* ViewController.swift in Sources */,
 				21FEA9A7246C31D800FA2BB5 /* AppDelegate.swift in Sources */,
 			);
@@ -283,6 +287,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 98AMKL55GF;
 				INFOPLIST_FILE = "Coronavirus Tracking/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,6 +305,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 98AMKL55GF;
 				INFOPLIST_FILE = "Coronavirus Tracking/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
