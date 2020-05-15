@@ -8,23 +8,63 @@
 
 import UIKit
 
-class LiveReportsViewController: UIViewController {
-
+class LiveReportsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    let url = URL(string: "https://api.covid19api.com/summary")!
+    var countryData:Countries?
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let request = URLRequest(url: url)
+        URLSession.shared.dataTask(with: request) { (responseData, response, error) in
+            print("here")
+            do{
+                let decoded = try JSONDecoder().decode(Countries.self, from: responseData!)
+                print(decoded)
+            }catch let error {
+                print(error.localizedDescription)
+            }
+            
+        }.resume()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return countryData?.country?.count ?? 0
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reportsCell") as! LiveReportsTableViewCell
+        return cell
+    }
+    
 
+}
+//"Country": "ALA Aland Islands",
+//"CountryCode": "AX",
+//"Slug": "ala-aland-islands",
+//"NewConfirmed": 0,
+//"TotalConfirmed": 0,
+//"NewDeaths": 0,
+//"TotalDeaths": 0,
+//"NewRecovered": 0,
+//"TotalRecovered": 0,
+//"Date": "2020-04-05T06:37:00Z"
+
+struct Countries: Codable {
+    var country: [Country]?
+}
+struct Country:Codable {
+    var country: String?
+    var countryCode: String?
+    var slug:String?
+    var newConfirmed: Int?
+    var totalConfirmed: Int?
+    var newDeaths: Int?
+    var totalDeaths: Int?
+    var newRecovered: Int?
+    var totalRecovered: Int?
+    var date: Date?
 }

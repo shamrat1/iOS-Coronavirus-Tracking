@@ -41,7 +41,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="90" id="CPh-MH-xqn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reportsCell" rowHeight="90" id="CPh-MH-xqn" customClass="LiveReportsTableViewCell" customModule="Coronavirus_Tracking" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CPh-MH-xqn" id="nwx-nQ-YRM">
@@ -103,6 +103,11 @@
                                                 <constraint firstItem="Dyi-TD-wtZ" firstAttribute="top" secondItem="nwx-nQ-YRM" secondAttribute="top" constant="4" id="mR9-Ih-hhB"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="countryFlagImageView" destination="ZEu-z3-lkv" id="WXb-xa-Cbj"/>
+                                            <outlet property="countryNameLabel" destination="XE0-RQ-Yz9" id="8JD-bn-xxe"/>
+                                            <outlet property="currentTollLabel" destination="G39-Xd-H4a" id="zKU-Ve-5oj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -121,6 +126,9 @@
                         <viewLayoutGuide key="safeArea" id="0sK-Wv-W0T"/>
                     </view>
                     <navigationItem key="navigationItem" title="Live Reports" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="ziT-z9-BMa"/>
+                    <connections>
+                        <outlet property="tableView" destination="vqE-Jv-qBm" id="b8U-o3-7Ta"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fpm-HI-Ho3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
