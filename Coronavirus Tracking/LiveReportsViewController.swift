@@ -32,7 +32,7 @@ class LiveReportsViewController: UIViewController, UITableViewDelegate, UITableV
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countryData?.country?.count ?? 0
+        return countryData?.allCountries?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,7 +54,12 @@ class LiveReportsViewController: UIViewController, UITableViewDelegate, UITableV
 //"Date": "2020-04-05T06:37:00Z"
 
 struct Countries: Codable {
-    var country: [Country]?
+    var allCountries: [Country]?
+    
+    private enum CodingKeys: String, CodingKey {
+        case allCountries = "Countries"
+    }
+    
 }
 struct Country:Codable {
     var country: String?
@@ -66,5 +71,18 @@ struct Country:Codable {
     var totalDeaths: Int?
     var newRecovered: Int?
     var totalRecovered: Int?
-    var date: Date?
+    var date: String?
+    
+    private enum CodingKeys: String,CodingKey {
+        case country = "Country"
+        case countryCode = "CountryCode"
+        case slug = "Slug"
+        case newConfirmed = "NewConfirmed"
+        case totalConfirmed = "TotalConfirmed"
+        case newDeaths = "NewDeaths"
+        case totalDeaths = "TotalDeaths"
+        case newRecovered = "NewRecovered"
+        case totalRecovered = "TotalRecovered"
+        case date = "Date"
+    }
 }
