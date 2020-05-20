@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class LiveReportsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let url = URL(string: "https://api.covid19api.com/summary")!
@@ -18,16 +19,23 @@ class LiveReportsViewController: UIViewController, UITableViewDelegate, UITableV
 
         // Do any additional setup after loading the view.
         let request = URLRequest(url: url)
-        URLSession.shared.dataTask(with: request) { (responseData, response, error) in
-            print("here")
-            do{
-                let decoded = try JSONDecoder().decode(Countries.self, from: responseData!)
-                print(decoded)
-            }catch let error {
-                print(error.localizedDescription)
-            }
-            
-        }.resume()
+        DispatchQueue.global(qos: .userInteractive).async {
+            URLSession.shared.dataTask(with: request) { (responseData, response, error) in
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200, error == nil else {
+                    fatalError("Problem fetching data")
+                }
+                do{
+                    let decoded = try JSONDecoder().decode(Countries.self, from: responseData!)
+                    self.countryData = decoded
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }catch let error {
+                    print(error.localizedDescription)
+                }
+                
+                }.resume()
+        }
     }
     
 
@@ -37,8 +45,19 @@ class LiveReportsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reportsCell") as! LiveReportsTableViewCell
+        guard let country = countryData?.allCountries?[indexPath.row], let totalConfirmed = country.totalConfirmed else {
+            fatalError("country not found")
+        }
+        let countryCode = country.countryCode?.lowercased()
+        let flagUrl = URL(string: "https://www.countryflags.io/\(countryCode!)/flat/64.png")!
+        print(flagUrl)
+        cell.currentTollLabel.text = String(totalConfirmed)
+        cell.countryNameLabel.text = country.country
+        cell.countryFlagImageView.kf.setImage(with: flagUrl)
+        
         return cell
     }
+    
     
 
 }
