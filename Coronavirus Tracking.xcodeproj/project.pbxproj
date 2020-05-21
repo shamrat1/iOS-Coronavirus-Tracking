@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2158CAAC2476DCE900351455 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2158CAAB2476DCE900351455 /* CustomUIView.swift */; };
+		2158CAAE2476E35000351455 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2158CAAD2476E35000351455 /* Data.swift */; };
 		216C3AC2246C47A7006BC014 /* LiveReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216C3AC1246C47A7006BC014 /* LiveReportsViewController.swift */; };
 		21B31F6B246EF65E00F03075 /* LiveReportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B31F6A246EF65E00F03075 /* LiveReportsTableViewCell.swift */; };
 		21FEA9A7246C31D800FA2BB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FEA9A6246C31D800FA2BB5 /* AppDelegate.swift */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		047528683C81CA4EE8161225 /* Pods_Coronavirus_Tracking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coronavirus_Tracking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2158CAAB2476DCE900351455 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
+		2158CAAD2476E35000351455 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		216C3AC1246C47A7006BC014 /* LiveReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveReportsViewController.swift; sourceTree = "<group>"; };
 		21B31F6A246EF65E00F03075 /* LiveReportsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveReportsTableViewCell.swift; sourceTree = "<group>"; };
 		21FEA9A3246C31D800FA2BB5 /* Coronavirus Tracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coronavirus Tracking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +85,8 @@
 				21FEA9B2246C31DA00FA2BB5 /* Info.plist */,
 				216C3AC1246C47A7006BC014 /* LiveReportsViewController.swift */,
 				21B31F6A246EF65E00F03075 /* LiveReportsTableViewCell.swift */,
+				2158CAAB2476DCE900351455 /* CustomUIView.swift */,
+				2158CAAD2476E35000351455 /* Data.swift */,
 			);
 			path = "Coronavirus Tracking";
 			sourceTree = "<group>";
@@ -91,7 +97,6 @@
 				6F492992C6DFC0B210D226B1 /* Pods-Coronavirus Tracking.debug.xcconfig */,
 				BDF426AA1DCFAA4DFFBDD99D /* Pods-Coronavirus Tracking.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -211,6 +216,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				216C3AC2246C47A7006BC014 /* LiveReportsViewController.swift in Sources */,
+				2158CAAE2476E35000351455 /* Data.swift in Sources */,
+				2158CAAC2476DCE900351455 /* CustomUIView.swift in Sources */,
 				21FEA9A9246C31D800FA2BB5 /* ViewController.swift in Sources */,
 				21FEA9A7246C31D800FA2BB5 /* AppDelegate.swift in Sources */,
 				21B31F6B246EF65E00F03075 /* LiveReportsTableViewCell.swift in Sources */,

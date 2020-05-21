@@ -8,8 +8,11 @@
 
 import UIKit
 import Kingfisher
+import NVActivityIndicatorView
 
 class LiveReportsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let loader = NVActivityIndicatorView(frame: .zero, type: .ballRotateChase, color: .red, padding: 0)
     let url = URL(string: "https://api.covid19api.com/summary")!
     var countryData:Countries?
     @IBOutlet weak var tableView: UITableView!
@@ -18,24 +21,7 @@ class LiveReportsViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let request = URLRequest(url: url)
-        DispatchQueue.global(qos: .userInteractive).async {
-            URLSession.shared.dataTask(with: request) { (responseData, response, error) in
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200, error == nil else {
-                    fatalError("Problem fetching data")
-                }
-                do{
-                    let decoded = try JSONDecoder().decode(Countries.self, from: responseData!)
-                    self.countryData = decoded
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                }catch let error {
-                    print(error.localizedDescription)
-                }
-                
-                }.resume()
-        }
+        getData()
     }
     
 
@@ -56,6 +42,44 @@ class LiveReportsViewController: UIViewController, UITableViewDelegate, UITableV
         cell.countryFlagImageView.kf.setImage(with: flagUrl)
         
         return cell
+    }
+    func getData(){
+        loaderAnimate()
+        
+        let request = URLRequest(url: url)
+        DispatchQueue.global(qos: .userInteractive).async {
+            URLSession.shared.dataTask(with: request) { (responseData, response, error) in
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200, error == nil else {
+                    fatalError("Problem fetching data")
+                }
+                do{
+                    let decoded = try JSONDecoder().decode(Countries.self, from: responseData!)
+                    self.countryData = decoded
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        self.loader.stopAnimating()
+                    }
+                }catch let error {
+                    print(error.localizedDescription)
+                }
+
+                }.resume()
+        }
+        
+    }
+    
+    func loaderAnimate() {
+        loader.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loader)
+        
+        NSLayoutConstraint.activate([
+            loader.widthAnchor.constraint(equalToConstant: 40),
+            loader.heightAnchor.constraint(equalToConstant: 40),
+            loader.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loader.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            ])
+        
+        loader.startAnimating()
     }
     
     
