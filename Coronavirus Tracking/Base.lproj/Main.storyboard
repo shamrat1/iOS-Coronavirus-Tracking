@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vqE-Jv-qBm">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reportsCell" rowHeight="90" id="CPh-MH-xqn" customClass="LiveReportsTableViewCell" customModule="Coronavirus_Tracking" customModuleProvider="target">
@@ -61,14 +61,14 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="China" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="XE0-RQ-Yz9">
                                                             <rect key="frame" x="100" y="30" width="100" height="20"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="100" id="XE4-NK-A5z"/>
+                                                                <constraint firstAttribute="width" constant="100" placeholder="YES" id="XE4-NK-A5z"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="855820" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G39-Xd-H4a">
-                                                            <rect key="frame" x="208" y="32.5" width="45" height="14.5"/>
+                                                            <rect key="frame" x="208" y="33" width="45" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" name="accentColor"/>
                                                             <nil key="highlightedColor"/>
@@ -115,18 +115,27 @@
                                     <outlet property="delegate" destination="gaa-od-0RW" id="css-08-wmw"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="B9b-yA-qxQ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vqE-Jv-qBm" firstAttribute="leading" secondItem="0sK-Wv-W0T" secondAttribute="leading" id="C6M-qI-htz"/>
                             <constraint firstItem="0sK-Wv-W0T" firstAttribute="trailing" secondItem="vqE-Jv-qBm" secondAttribute="trailing" id="ERf-0z-JkH"/>
-                            <constraint firstItem="vqE-Jv-qBm" firstAttribute="top" secondItem="0sK-Wv-W0T" secondAttribute="top" id="jE7-y6-PYA"/>
+                            <constraint firstItem="B9b-yA-qxQ" firstAttribute="top" secondItem="0sK-Wv-W0T" secondAttribute="top" id="O2b-aY-V7U"/>
+                            <constraint firstItem="vqE-Jv-qBm" firstAttribute="top" secondItem="B9b-yA-qxQ" secondAttribute="bottom" id="kRI-g1-zfS"/>
+                            <constraint firstItem="B9b-yA-qxQ" firstAttribute="leading" secondItem="0sK-Wv-W0T" secondAttribute="leading" id="nhS-dM-VsP"/>
                             <constraint firstItem="0sK-Wv-W0T" firstAttribute="bottom" secondItem="vqE-Jv-qBm" secondAttribute="bottom" id="q9S-8F-Bmw"/>
+                            <constraint firstItem="B9b-yA-qxQ" firstAttribute="trailing" secondItem="0sK-Wv-W0T" secondAttribute="trailing" id="qsK-IQ-jRZ"/>
+                            <constraint firstItem="vqE-Jv-qBm" firstAttribute="top" secondItem="B9b-yA-qxQ" secondAttribute="bottom" id="zIJ-3C-un9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0sK-Wv-W0T"/>
                     </view>
                     <navigationItem key="navigationItem" title="Live Reports" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="ziT-z9-BMa"/>
                     <connections>
+                        <outlet property="countrySearchBar" destination="B9b-yA-qxQ" id="tPF-AP-bFF"/>
                         <outlet property="tableView" destination="vqE-Jv-qBm" id="b8U-o3-7Ta"/>
                     </connections>
                 </viewController>
@@ -148,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VaR-9F-6Yt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1816.8" y="959.37031484257875"/>
+            <point key="canvasLocation" x="-1282" y="959"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kon-DK-RSd">

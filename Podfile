@@ -8,5 +8,6 @@ target 'Coronavirus Tracking' do
   # Pods for Coronavirus Tracking
     pod 'Kingfisher', '~> 4.10.0'
     pod 'NVActivityIndicatorView'
+    pod 'Toast-Swift', '~> 5.0.1'
 
 end
