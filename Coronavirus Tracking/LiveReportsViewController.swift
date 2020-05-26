@@ -16,7 +16,7 @@ class LiveReportsViewController: UIViewController, UITableViewDelegate, UITableV
     let loader = NVActivityIndicatorView(frame: .zero, type: .ballRotateChase, color: .red, padding: 0)
     let url = URL(string: "https://api.covid19api.com/summary")!
     var countryData:Countries?
-    var filteredCountries: Countries?
+    var filteredCountries: [Country]?
     var searching = false
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var countrySearchBar: UISearchBar!
@@ -36,19 +36,25 @@ class LiveReportsViewController: UIViewController, UITableViewDelegate, UITableV
 
         // Do any additional setup after loading the view.
         countrySearchBar.delegate = self
+        countrySearchBar.showsCancelButton = true
         getData()
         self.tableView.addSubview(self.refreshControl)
     }
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countryData?.allCountries?.count ?? 0
+        return searching ? filteredCountries?.count ?? 0 : countryData?.allCountries?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reportsCell") as! LiveReportsTableViewCell
-        guard let country = countryData?.allCountries?[indexPath.row], let totalConfirmed = country.totalConfirmed else {
+        
+        guard let country = searching ? filteredCountries?[indexPath.row] : countryData?.allCountries?[indexPath.row] else {
             fatalError("country not found")
+        }
+        
+        guard let totalConfirmed = country.totalConfirmed else {
+            fatalError("total confirmed+ not found")
         }
         let countryCode = country.countryCode?.lowercased()
         let flagUrl = URL(string: "https://www.countryflags.io/\(countryCode!)/flat/64.png")!
@@ -58,6 +64,14 @@ class LiveReportsViewController: UIViewController, UITableViewDelegate, UITableV
         cell.countryFlagImageView.kf.setImage(with: flagUrl)
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "list2singleReport" {
+            
+        }
     }
     
     func getData(){
@@ -111,13 +125,26 @@ class LiveReportsViewController: UIViewController, UITableViewDelegate, UITableV
 
 extension LiveReportsViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("here")
-        guard let allCountry = countryData?.allCountries else {
+        
+        guard !searchText.isEmpty else {
+            searching = false
+            tableView.reloadData()
+            return
+        }
+        
+        filteredCountries = []
+        searching = true
+        guard let data = countryData, let allCountries = data.allCountries else {
             return print("returning")
         }
-//        allCountry.filter{ $0.country?.contains(searchText) }
-        filteredCountries?.allCountries = allCountry.filter({ return $0.country!.contains(searchText)})
-        print(filteredCountries?.allCountries)
+
+        filteredCountries = allCountries.filter({ return $0.country?.contains(searchText) ?? false})
+        
+        tableView.reloadData()
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        tableView.reloadData()
     }
 }
 
