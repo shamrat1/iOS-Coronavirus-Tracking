@@ -66,11 +66,20 @@ class LiveReportsViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "list2singleReport", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "list2singleReport" {
-            
+            if let destinationVC = segue.destination as? SingleReportViewController {
+                
+                guard let indexPath = self.tableView.indexPathForSelectedRow else {
+                    return print("No Item selected")
+                }
+                defer {
+                    self.tableView.deselectRow(at: indexPath , animated: true)
+                }
+                destinationVC.country = searching ? filteredCountries?[indexPath.row] : countryData?.allCountries?[indexPath.row]
+            }
         }
     }
     

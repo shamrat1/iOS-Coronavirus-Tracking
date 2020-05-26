@@ -9,14 +9,20 @@
 import UIKit
 
 class SingleReportViewController: UIViewController {
-    var country : [Country]?
+    var country : Country?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupUI()
+        print(country?.countryCode!)
     }
     
+    func setupUI() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = country?.country
+    }
 
     /*
     // MARK: - Navigation
