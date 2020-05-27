@@ -10,13 +10,12 @@ import UIKit
 
 class SingleReportViewController: UIViewController {
     var country : Country?
-    
+    // url https://api.covid19api.com/country/bangladesh?from=2020-05-07T00:00:00Z&to=2020-05-14T00:00:00Z
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setupUI()
-        print(country?.countryCode!)
+        
     }
     
     func setupUI() {
@@ -24,14 +23,6 @@ class SingleReportViewController: UIViewController {
         self.navigationItem.title = country?.country
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

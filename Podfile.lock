@@ -1,4 +1,7 @@
 PODS:
+  - Charts (3.2.2):
+    - Charts/Core (= 3.2.2)
+  - Charts/Core (3.2.2)
   - Kingfisher (4.10.1)
   - NVActivityIndicatorView (4.8.0):
     - NVActivityIndicatorView/Presenter (= 4.8.0)
@@ -6,21 +9,24 @@ PODS:
   - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
+  - Charts (~> 3.2.0)
   - Kingfisher (~> 4.10.0)
   - NVActivityIndicatorView
   - Toast-Swift (~> 5.0.1)
 
 SPEC REPOS:
   trunk:
+    - Charts
     - Kingfisher
     - NVActivityIndicatorView
     - Toast-Swift
 
 SPEC CHECKSUMS:
+  Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 1e197d65502c5d5176f56a1d04ceff80caff6f54
+PODFILE CHECKSUM: 5970ab15d9f7c885d4652525a77a66af031242c2
 
 COCOAPODS: 1.9.1
