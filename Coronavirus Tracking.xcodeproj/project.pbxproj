@@ -10,6 +10,8 @@
 		211F1FC2247D6B3F001814CD /* SingleReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211F1FC1247D6B3F001814CD /* SingleReportViewController.swift */; };
 		2158CAAC2476DCE900351455 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2158CAAB2476DCE900351455 /* CustomUIView.swift */; };
 		216C3AC2246C47A7006BC014 /* LiveReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216C3AC1246C47A7006BC014 /* LiveReportsViewController.swift */; };
+		21AA9C0024800055008600BE /* SingleCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA9BFF24800055008600BE /* SingleCountry.swift */; };
+		21AA9C0224800088008600BE /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AA9C0124800088008600BE /* Countries.swift */; };
 		21B31F6B246EF65E00F03075 /* LiveReportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B31F6A246EF65E00F03075 /* LiveReportsTableViewCell.swift */; };
 		21FEA9A7246C31D800FA2BB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FEA9A6246C31D800FA2BB5 /* AppDelegate.swift */; };
 		21FEA9A9246C31D800FA2BB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FEA9A8246C31D800FA2BB5 /* ViewController.swift */; };
@@ -24,6 +26,8 @@
 		211F1FC1247D6B3F001814CD /* SingleReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleReportViewController.swift; sourceTree = "<group>"; };
 		2158CAAB2476DCE900351455 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
 		216C3AC1246C47A7006BC014 /* LiveReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveReportsViewController.swift; sourceTree = "<group>"; };
+		21AA9BFF24800055008600BE /* SingleCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCountry.swift; sourceTree = "<group>"; };
+		21AA9C0124800088008600BE /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		21B31F6A246EF65E00F03075 /* LiveReportsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveReportsTableViewCell.swift; sourceTree = "<group>"; };
 		21FEA9A3246C31D800FA2BB5 /* Coronavirus Tracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coronavirus Tracking.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21FEA9A6246C31D800FA2BB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 		218D7278247F525F00685EFD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				21AA9BFF24800055008600BE /* SingleCountry.swift */,
+				21AA9C0124800088008600BE /* Countries.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -256,10 +262,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				216C3AC2246C47A7006BC014 /* LiveReportsViewController.swift in Sources */,
+				21AA9C0024800055008600BE /* SingleCountry.swift in Sources */,
 				2158CAAC2476DCE900351455 /* CustomUIView.swift in Sources */,
 				211F1FC2247D6B3F001814CD /* SingleReportViewController.swift in Sources */,
 				21FEA9A9246C31D800FA2BB5 /* ViewController.swift in Sources */,
 				21FEA9A7246C31D800FA2BB5 /* AppDelegate.swift in Sources */,
+				21AA9C0224800088008600BE /* Countries.swift in Sources */,
 				21B31F6B246EF65E00F03075 /* LiveReportsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

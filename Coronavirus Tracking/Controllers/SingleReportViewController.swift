@@ -9,14 +9,18 @@
 import UIKit
 import Charts
 import Toast_Swift
+import NVActivityIndicatorView
 
 class SingleReportViewController: UIViewController {
+    let loader = NVActivityIndicatorView(frame: .zero, type: .ballRotateChase, color: .red, padding: 0)
     var country : Country?
     
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var lineChart: LineChartView!
     
     let date = Date().string(format: "yy-MM-dd")
+    let dateBefore = Calendar.current.date(byAdding: .day, value: -90, to: Date())?.string(format: "yy-MM-dd")
+    let fromDate = Calendar.current.date(byAdding: .day, value: -60, to: Date())?.string(format: "yyyy-MM-dd")
     var data = [SingleCountry]()
     
     var activeValues = [ChartDataEntry]()
@@ -32,16 +36,20 @@ class SingleReportViewController: UIViewController {
     }
     
     func getData(){
-        guard let countryName = country?.country else {
+        guard let countryName = country?.slug else {
             print("country not found")
             return
         }
-        let url = URL(string: "https://api.covid19api.com/country/\(countryName)?from=2020-05-07T00:00:00Z&to=\(date)T00:00:00Z")!
+        let url = URL(string: "https://api.covid19api.com/country/\(countryName)?from=\(dateBefore!)T00:00:00Z&to=\(date)T00:00:00Z")!
+//        let url = URL(string: "https://api.covid19api.com/live/country/\(countryName)/status/confirmed/date/\(fromDate!)T00:00:00Z")! // to get all the results after the given date
+        print(url)
         let request = URLRequest(url: url)
         let task = URLSession.shared
+        loaderAnimate()
         task.dataTask(with: request) { (responseData, response, error) in
             guard let data = responseData else {
-                return print("Error Fetching Data")
+                print("Error Fetching Data")
+                return
             }
             
             do {
@@ -61,16 +69,25 @@ class SingleReportViewController: UIViewController {
                 }
                 DispatchQueue.main.async {
                     self.updateUI()
+                    self.loader.stopAnimating()
                 }
                 
             }catch let err {
                 print(err.localizedDescription)
             }
-            }.resume()
+        }.resume()
     }
     
+    @IBAction func onClickRefresh(_ sender: Any) {
+        lineChart.data = nil
+        pieChart.data = nil
+        getData()
+        
+    }
+    
+    
     func setupUI() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+//        self.navigationController?.navigationBar.prefersLargeTitles =
         self.navigationItem.title = country?.country
         
         // Line Chart Setup
@@ -133,12 +150,24 @@ class SingleReportViewController: UIViewController {
     func setupLineDataset(line: LineChartDataSet,color: String,fillColor: String,fillAlpha: CGFloat){
         line.mode = .cubicBezier
         line.drawCirclesEnabled = false
-        line.lineWidth = 2
+        line.lineWidth = 3
         line.setColor(UIColor(named: color)!)
         line.fill = Fill(color: UIColor(named: fillColor)!)
         line.fillAlpha = fillAlpha
         line.drawFilledEnabled = false
         line.drawHorizontalHighlightIndicatorEnabled = false
+    }
+    
+    func loaderAnimate() {
+        loader.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loader)
+        NSLayoutConstraint.activate([
+            loader.widthAnchor.constraint(equalToConstant: 40),
+            loader.heightAnchor.constraint(equalToConstant: 40),
+            loader.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loader.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            ])
+        loader.startAnimating()
     }
 
     
