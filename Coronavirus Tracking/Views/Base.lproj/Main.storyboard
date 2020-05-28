@@ -168,9 +168,58 @@
                     <view key="view" contentMode="scaleToFill" id="hoS-eX-Z5I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Short Summery" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTP-o9-wGE">
+                                <rect key="frame" x="0.0" y="72" width="375" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="q8V-r7-YTR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9a-cZ-tJS" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="101" width="343" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="xai-f3-agA"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evolution" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVO-Cw-bEb">
+                                <rect key="frame" x="16" y="309" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="oPf-ss-XpQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLe-PO-LPe" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="338" width="343" height="272"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sLe-PO-LPe" firstAttribute="leading" secondItem="a1w-LE-wVe" secondAttribute="leading" constant="16" id="0It-tr-ETj"/>
+                            <constraint firstItem="uTP-o9-wGE" firstAttribute="leading" secondItem="a1w-LE-wVe" secondAttribute="leading" id="3Pj-8P-68k"/>
+                            <constraint firstItem="cVO-Cw-bEb" firstAttribute="leading" secondItem="a1w-LE-wVe" secondAttribute="leading" constant="16" id="4DY-p4-egA"/>
+                            <constraint firstItem="U9a-cZ-tJS" firstAttribute="top" secondItem="uTP-o9-wGE" secondAttribute="bottom" constant="8" id="L7y-Ss-fWl"/>
+                            <constraint firstItem="a1w-LE-wVe" firstAttribute="trailing" secondItem="cVO-Cw-bEb" secondAttribute="trailing" constant="16" id="LDY-z0-gB3"/>
+                            <constraint firstItem="uTP-o9-wGE" firstAttribute="top" secondItem="a1w-LE-wVe" secondAttribute="top" constant="8" id="XhE-kp-nBe"/>
+                            <constraint firstItem="a1w-LE-wVe" firstAttribute="bottom" secondItem="sLe-PO-LPe" secondAttribute="bottom" constant="8" id="cZa-w1-fku"/>
+                            <constraint firstItem="sLe-PO-LPe" firstAttribute="top" secondItem="cVO-Cw-bEb" secondAttribute="bottom" constant="8" id="cnn-rK-IIP"/>
+                            <constraint firstItem="a1w-LE-wVe" firstAttribute="trailing" secondItem="uTP-o9-wGE" secondAttribute="trailing" id="lCD-7b-IiA"/>
+                            <constraint firstItem="a1w-LE-wVe" firstAttribute="trailing" secondItem="U9a-cZ-tJS" secondAttribute="trailing" constant="16" id="rer-jB-OUS"/>
+                            <constraint firstItem="cVO-Cw-bEb" firstAttribute="top" secondItem="U9a-cZ-tJS" secondAttribute="bottom" constant="8" id="rxO-Qf-dFB"/>
+                            <constraint firstItem="a1w-LE-wVe" firstAttribute="trailing" secondItem="sLe-PO-LPe" secondAttribute="trailing" constant="16" id="t6b-ba-ATO"/>
+                            <constraint firstItem="U9a-cZ-tJS" firstAttribute="leading" secondItem="a1w-LE-wVe" secondAttribute="leading" constant="16" id="uQQ-9N-qJ5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="a1w-LE-wVe"/>
                     </view>
+                    <connections>
+                        <outlet property="lineChart" destination="sLe-PO-LPe" id="9s9-UO-xTk"/>
+                        <outlet property="pieChart" destination="U9a-cZ-tJS" id="4ie-ZS-bam"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rch-CH-9XB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

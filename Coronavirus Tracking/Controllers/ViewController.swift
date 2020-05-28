@@ -60,7 +60,6 @@ class ViewController: UIViewController {
         lineChart.xAxis.labelFont = .boldSystemFont(ofSize: 12)
         lineChart.leftAxis.labelTextColor = .white
         lineChart.leftAxis.labelFont = .boldSystemFont(ofSize: 12)
-        //        lineChart.leftAxis.labelPosition = .
         lineChart.rightAxis.enabled = false
         
         lineChart.animate(xAxisDuration: 2.5)

@@ -56,6 +56,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		218D7278247F525F00685EFD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		218D7279247F526F00685EFD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				21FEA9AA246C31D800FA2BB5 /* Main.storyboard */,
+				21FEA9AF246C31DA00FA2BB5 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		218D727A247F527B00685EFD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				21FEA9A8246C31D800FA2BB5 /* ViewController.swift */,
+				216C3AC1246C47A7006BC014 /* LiveReportsViewController.swift */,
+				21B31F6A246EF65E00F03075 /* LiveReportsTableViewCell.swift */,
+				211F1FC1247D6B3F001814CD /* SingleReportViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		218D727B247F528600685EFD /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				21FEA9A6246C31D800FA2BB5 /* AppDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		218D727C247F529A00685EFD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2158CAAB2476DCE900351455 /* CustomUIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		21FEA99A246C31D800FA2BB5 = {
 			isa = PBXGroup;
 			children = (
@@ -77,16 +120,13 @@
 		21FEA9A5246C31D800FA2BB5 /* Coronavirus Tracking */ = {
 			isa = PBXGroup;
 			children = (
-				21FEA9A6246C31D800FA2BB5 /* AppDelegate.swift */,
-				21FEA9A8246C31D800FA2BB5 /* ViewController.swift */,
-				21FEA9AA246C31D800FA2BB5 /* Main.storyboard */,
+				218D727C247F529A00685EFD /* Extensions */,
+				218D727B247F528600685EFD /* Support */,
+				218D727A247F527B00685EFD /* Controllers */,
+				218D7279247F526F00685EFD /* Views */,
+				218D7278247F525F00685EFD /* Models */,
 				21FEA9AD246C31DA00FA2BB5 /* Assets.xcassets */,
-				21FEA9AF246C31DA00FA2BB5 /* LaunchScreen.storyboard */,
 				21FEA9B2246C31DA00FA2BB5 /* Info.plist */,
-				216C3AC1246C47A7006BC014 /* LiveReportsViewController.swift */,
-				21B31F6A246EF65E00F03075 /* LiveReportsTableViewCell.swift */,
-				2158CAAB2476DCE900351455 /* CustomUIView.swift */,
-				211F1FC1247D6B3F001814CD /* SingleReportViewController.swift */,
 			);
 			path = "Coronavirus Tracking";
 			sourceTree = "<group>";
