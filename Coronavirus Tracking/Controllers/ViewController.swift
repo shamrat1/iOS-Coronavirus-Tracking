@@ -10,12 +10,29 @@ import UIKit
 import Charts
 
 class ViewController: UIViewController {
+    let countryWithLatLonURL = URL(string: "https://restcountries.eu/rest/v2/all")!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let request = URLRequest(url: countryWithLatLonURL)
+        URLSession.shared.dataTask(with: request) { (responseData, response, error) in
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200, error == nil else {
+                return
+            }
+            do{
+                let data = try JSONDecoder().decode([CountryWithLatLon].self, from: responseData!)
+                print(data)
+            }catch let err {
+                print(err.localizedDescription)
+            }
+            }.resume()
     }
 
 

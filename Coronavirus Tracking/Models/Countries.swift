@@ -41,3 +41,11 @@ struct Country:Codable {
         case date = "Date"
     }
 }
+
+
+struct CountryWithLatLon: Codable {
+    var name: String?
+    var alpha2Code: String?
+    var latlng:[String]?
+}
+
